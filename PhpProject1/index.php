@@ -22,35 +22,36 @@ and open the template in the editor.
         $nuwWeekDay=date(N);//порядковый номер текущего дня недели
         $firstDayOfMonth = date("N", mktime(0, 0, 0, $numMonth, 1, $curentYear));//порядковый номер дня недели первого числа месяца
         $lastDayOfMonth = date("N", mktime(0, 0, 0, $numMonth, $numberDay, $curentYear));//порядковый номер дня недели последнего числа месяца
+        $html=" ";
         
         
         //название месяца и текущий год
-        echo "<caption> $currentMonth \t $curentYear </caption>";
+        $html="<caption> $currentMonth \t $curentYear </caption>";
         //таблица календаря
-        echo "<table border='1' style='border-collapse:collapse;' align='center'>";
+        $html=$html. "<table border='1' style='border-collapse:collapse;' align='center'>";
         // вывод названия дней недели
-        echo "<tr>";
+       $html=$html. "<tr>";
         foreach($weekDays as $value){
-            echo "<td>$value</td>";
+            $html=$html. "<td>$value</td>";
         }
-        echo "</tr>";
+        $html=$html. "</tr>";
         // первая неделя месяца
-        echo "<tr>";
+        $html=$html. "<tr>";
         for($i=1; $i<$firstDayOfMonth; $i++){
-            echo "<td></td>"; 
+            $html=$html. "<td></td>"; 
         }
         for($i=$firstDayOfMonth; $i<=7;$i++){
             $j=1;//числа месяца
-            echo "<td>$j</td>";
+            $html=$html. "<td>$j</td>";
             $j++;
         }
-        echo "</tr>";
+        $html=$html. "</tr>";
         //вывод оставшейся сетки календаря 
         
         while($j<=$numberDay){
-            echo "<tr>";
+           $html=$html. "<tr>";
             for($i=1; $i<=7; $i++){
-                echo "<td>$j</td>";
+                $html=$html. "<td>$j</td>";
                 $j++;
                 if($j>=$numberDay){
                     break(1);
@@ -58,14 +59,14 @@ and open the template in the editor.
             }
             if($j>$numberDay AND $lastDayOfMonth<7){
                 for($i=$lastDayOfMonth+1; $i<=7; $i++){
-                    echo "<td></td>";
+                    $html=$html. "<td></td>";
                 }
             }
-            echo "</tr>";
+            $html=$html. "</tr>";
         }
         
-        echo "</table>";
-        
+        $html=$html. "</table>";
+        echo $html;
         
         ?>        
     </body>
