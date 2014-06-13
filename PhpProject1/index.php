@@ -56,7 +56,7 @@ and open the template in the editor.
                     break(1);
                 }
             }
-            if($lastDayOfMonth<7){
+            if($j>$numberDay AND $lastDayOfMonth<7){
                 for($i=$lastDayOfMonth+1; $i<=7; $i++){
                     echo "<td></td>";
                 }
