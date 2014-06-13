@@ -10,13 +10,24 @@ and open the template in the editor.
         <title>Календарь</title>
     </head>
     <body>
-        <?php 
+        <?php
+        function getCalendar($month = null, $year = null){ 
         date_default_timezone_set('UTC');
-        
         $weekDays=array(1=>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
         $currentMonth=date(F);//наименование месяца
-        $numMonth=date(n);//наименование месяца
-        $curentYear=date(Y);//год
+        if($month == null) {
+          $numMonth=date(n);//наименование месяца
+        }
+        else{
+          $numMonth=$month;
+        }   
+        if($year == null) {
+          $curentYear=date(Y);//год
+        }
+        else{
+          $curentYear=$year;
+        }
+        
         $currentDay=date(j);//день месяца
         $numberDay=date(t);//количество дней в текущем месяце
         $nuwWeekDay=date(N);//порядковый номер текущего дня недели
@@ -66,7 +77,9 @@ and open the template in the editor.
         }
         
         $html=$html. "</table>";
-        echo $html;
+        return $html;
+        }
+        echo getCalendar();
         
         ?>        
     </body>
