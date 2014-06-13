@@ -79,7 +79,7 @@ and open the template in the editor.
         $html=$html. "</table>";
         return $html;
         }
-        echo getCalendar();
+        echo getCalendar($_GET["month"], $_GET["year"]);
         
         ?>        
     </body>
