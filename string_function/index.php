@@ -1,86 +1,67 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Календарь</title>
-    </head>
-    <body>
-        <?php
-        function getCalendar($month = null, $year = null){ 
-        date_default_timezone_set('UTC');
-        $weekDays=array(1=>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
-        $currentMonth=date(F);//наименование месяца
-        if($month == null) {
-          $numMonth=date(n);//наименование месяца
+<?php
+//*******************************************
+function size_array(array $array_s)
+{
+    $i=0;
+    foreach($array_s as $value){
+        $i++;
+    }
+    return $i;
+}
+//*******************************************
+/**
+ * 
+ */
+function size_str($str)
+{
+$i=0;    
+while(isset($str{$i})){
+        $i++;
+    }
+    return $i;
+}
+
+var_dump(size_str("Hello World"));
+
+/**
+ * 
+ */
+function my_implode($glue, array $array_)
+{   
+    $string="";
+    for($i=0; $i<size_array($array_); $i++){
+        $string=$string.$array_[$i];
+        if(isset($array_[$i+1])){
+            $string=$string.$glue;
         }
+    }
+    return $string;
+}
+
+$my_mas=array("25", "qwerty", "ZZZ");
+$my_mas_str=my_implode("_", $my_mas);
+var_dump($my_mas_str);
+
+/**
+ * 
+ */
+function my_explode($del, $myString){
+    $tmp=array(null);
+    $ret_str="";
+    $j=0;
+    for($i=0; $i<size_str($myString);$i++){
+        if($myString[$i]!=$del && isset($myString[$i])){
+        $ret_str=$ret_str.$myString[$i];
+        }  
         else{
-          $numMonth=$month;
-        }   
-        if($year == null) {
-          $curentYear=date(Y);//год
-        }
-        else{
-          $curentYear=$year;
-        }
-        
-        $currentDay=date(j);//день месяца
-        $numberDay=date(t);//количество дней в текущем месяце
-        $nuwWeekDay=date(N);//порядковый номер текущего дня недели
-        $firstDayOfMonth = date("N", mktime(0, 0, 0, $numMonth, 1, $curentYear));//порядковый номер дня недели первого числа месяца
-        $lastDayOfMonth = date("N", mktime(0, 0, 0, $numMonth, $numberDay, $curentYear));//порядковый номер дня недели последнего числа месяца
-        $html=" ";
-        
-        
-        //название месяца и текущий год
-        $html="<caption> $currentMonth \t $curentYear </caption>";
-        //таблица календаря
-        $html=$html. "<table border='1' style='border-collapse:collapse;' align='center'>";
-        // вывод названия дней недели
-       $html=$html. "<tr>";
-        foreach($weekDays as $value){
-            $html=$html. "<td>$value</td>";
-        }
-        $html=$html. "</tr>";
-        // первая неделя месяца
-        $html=$html. "<tr>";
-        for($i=1; $i<$firstDayOfMonth; $i++){
-            $html=$html. "<td></td>"; 
-        }
-        for($i=$firstDayOfMonth; $i<=7;$i++){
-            $j=1;//числа месяца
-            $html=$html. "<td>$j</td>";
+            $tmp[$j]=$ret_str;
+            $ret_str="";
             $j++;
         }
-        $html=$html. "</tr>";
-        //вывод оставшейся сетки календаря 
         
-        while($j<=$numberDay){
-           $html=$html. "<tr>";
-            for($i=1; $i<=7; $i++){
-                $html=$html. "<td>$j</td>";
-                $j++;
-                if($j>=$numberDay){
-                    break(1);
-                }
-            }
-            if($j>$numberDay AND $lastDayOfMonth<7){
-                for($i=$lastDayOfMonth+1; $i<=7; $i++){
-                    $html=$html. "<td></td>";
-                }
-            }
-            $html=$html. "</tr>";
-        }
-        
-        $html=$html. "</table>";
-        return $html;
-        }
-        echo getCalendar($_GET["month"], $_GET["year"]);
-        
-        ?>        
-    </body>
-</html>
+    }
+    return $tmp;
+}
+$my_mas_str="25_qwerty_ZZZ";
+var_dump(my_explode("_", $my_mas_str));
+
