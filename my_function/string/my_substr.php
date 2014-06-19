@@ -1,7 +1,12 @@
 <?php
 
 /**
- * 
+ *
+ *
+ *@param string $string 
+ *@param int $start 
+ *@param int $stop
+ *@return string 
  */
 function my_substr($string="", $start=0, $stop=0)
 {
@@ -26,34 +31,30 @@ function my_substr($string="", $start=0, $stop=0)
     }
     
      if($start<0 && $stop>0 && abs($start)<strlen($string) && $stop<strlen($string)){
-        if(abs($start)>$stop || abs($start)==$stop){
-            for($i=abs($start); $i<=(strlen($string)-$stop-1);$i++){
+        if(abs($start) > $stop || abs($start)==$stop){
+            for($i=0; $i<=(strlen($string)-abs($start)-1);$i++){
             $string_=$string_.$string{$i};            
             } 
         } else{
-            for($i=$stop; $i<=(strlen($string)-abs($start)-1);$i++){
+            for($i=0; $i<=(strlen($string)-$stop-1);$i++){
             $string_=$string_.$string{$i}; 
             }
-        }
-     }/*
-     if($start<0 && $stop<0 && abs($start)<strlen($string) && abs($stop)<strlen($string)){
-        if(abs($start)>abs($stop)){
-            for($i=abs($start); $i>=(strlen($string)-abs($stop));$i--){
-            $string_=$string_.$string{$i};            
-            } 
-        } else{
-            for($i=abs($stop); $i>=(strlen($string)-abs($start));$i--){
-            $string_=$string_.$string{$i}; 
-            }
-        }
+        } 
+        
      }
+     if($start<0 && $stop<0 && abs($start)<strlen($string) && abs($stop)<strlen($string)){
+        for($i=abs($stop); $i<=(strlen($string)-abs($start)-1);$i++){
+            $string_=$string_.$string{$i};            
+        } 
+        
+        }
      if($start>0 && $stop<0 && $start<strlen($string) && abs($stop)<strlen($string)){
         if($start>abs($stop)){
-            for($i=$start; $i>=(strlen($string)-abs($stop));$i--){
+            for($i=$start; $i<=(strlen($string));$i++){
             $string_=$string_.$string{$i};            
             } 
         } else{
-            for($i=abs($stop); $i>=(strlen($string)-$start);$i--){
+            for($i=abs($stop); $i<=(strlen($string));$i++){
             $string_=$string_.$string{$i}; 
             }
         }
@@ -61,10 +62,11 @@ function my_substr($string="", $start=0, $stop=0)
      if($start==0 && $stop==0){
          $string_=$string;
      }
-     
-     */
+     if(abs($start)>=strlen($string) || abs($stop)>=strlen($string)) {
+         $string_="Eror";
+     }
     return $string_;
 }
 
 $str="Hello world";
-var_dump(my_substr($str,-2,3));
+var_dump(my_substr($str,2,-4));
