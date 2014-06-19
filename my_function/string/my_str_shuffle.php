@@ -1,31 +1,34 @@
 <?php
-
 /**
  * 
+ * @param type $string_
+ * @return type
  */
 function my_str_shuffle($string_){
     $i=0;
-    $index_=rand(0,  strlen($string_));
-    $tmp=array($index_);
+    $tmp=array();
     $tmp1=array();
-    $new_string="";
-    while(count($tmp)<strlen($string_)){
-        $index_=rand(0,  strlen($string_));
-        foreach ($tmp as $value){
-            if($index_ != $value){
-                $tmp[]=$index_;
-            }                
-        }                
+ 
+    $max = strlen($string_) - 1;
+    $min = 0;
+    $index_=rand($min, $max);
+    while(count($tmp)<strlen($string_)){  
+        while(in_array($index_, $tmp)){
+            $index_=rand($min, $max);
+            // Это нужно для уменьшения числа итераций
+            if($index_ == $max){
+            $max = $max - 1;
+            } else if ($index_ == $min) {
+            $min = $min + 1;
+            }   
+        };
+    flush();
+    $tmp[]=$index_;                 
     }
     for($i=0; $i<strlen($string_); $i++){
         $tmp1[]=$string_{$tmp[$i]};
     }
-    //var_dump($tmp1);
-    var_dump($tmp);
-    /*foreach ($tmp1 as $value1){
-        $new_string=$new_string.$value1;
-    }*/
-return $new_string;
+    return implode($tmp1);
 }
 
 var_dump("Hello world");
