@@ -9,32 +9,29 @@ function my_strncmp($string1, $string2, $len=0)
     $j=0;
     $tmp1="";
     $tmp2="";
-    if($len==0){
-        while(isset($string1{$i})){
-            $tmp1=$tmp1.ord($string1{i});
+    if( $len==0 ){    
+        while ( isset($string1{$i}) ){
+            $tmp1=$tmp1.ord( $string1{$i} );
             $i++;
         }
-        while(isset($string2{$j})){
-            $tmp2=$tmp2.ord($string2{j});
+        while ( isset($string2{$j}) ){
+            $tmp2=$tmp2.ord( $string2{$j} );
             $j++;
         }
-    }
-    $tmp=$tmp1-$tmp2;
-    var_dump($tmp);
-    return $tmp;
-    if($len>0){
-        for($i=0; $i<=$len; $i++){
-            $tmp1=$tmp1.ord($string1{i});
+    }   elseif($len<=strlen($string1) && $len<=strlen($string2)){
+        while($i<$len){
+            $tmp1=$tmp1.ord($string1{$i});
             $i++;
         }
-        for($j=0; $j<=$len; $j++){
-            $tmp2=$tmp2.ord($string2{j});
+        while($j<$len){
+            $tmp2=$tmp2.ord($string2{$j});
             $j++;
         }
+    }   else{
+        $tmp="Error";
     }
     $tmp=$tmp1-$tmp2;
-    var_dump($tmp);
     return $tmp;
 }
 
-my_strncmp(xczxcvxcvxcvxcvxcv, yhfghfghfghfgh, 5);
+var_dump(my_strncmp("qw", "World",2));
