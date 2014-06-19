@@ -1,20 +1,22 @@
 <?php
 
-/**
+/** Ôóíêöèÿ óäàëÿåò ïîâòîğÿşùèåñÿ ıëåìåíòû ìàññèâà ñ ñîõğàíåíèåì êëş÷à
  * 
+ *@param array $array_ âõîäÿùèé ìàññèâ
+ *@return array
  */
 function my_array_unique($array_)
 {
     $tmp=array();
-    var_dump($array_);
     foreach($array_ as $key => $value){
         foreach($array_ as $key1 => $value1){
-        if($array_[$key]==$array_[$key1]){
-            unset($array_[$key1]);
+        if($key!=$key1){
+          if($array_[$key]==$array_[$key1]){
+              unset($array_[$key1]);
+          }
         }
         }
     }
-    var_dump($array_);
     return $array_;
 }
 
