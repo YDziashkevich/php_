@@ -9,15 +9,14 @@ function my_ksort($mass, $flag='')
     $sortArray=array();
     $returnArray=array();
     
-    foreach ($mass as $value){
-        $sortArray[]=$value;
+    foreach ($mass as $key=>$value){
+        $sortArray[]=$key;
     }
-    
     for ($i=0; $i < $size; $i++)
     {
         for ($y=($i+1); $y < $size; $y++)
         {
-            if ($sortArray[$i] < $sortArray[$y])
+            if ($sortArray[$i] > $sortArray[$y])
             {
                 $c = $sortArray[$i];
                 $sortArray[$i] = $sortArray[$y];
@@ -27,8 +26,8 @@ function my_ksort($mass, $flag='')
     }
     foreach ($sortArray as $key1=>$value1){
         foreach ($mass as $key2=>$value2){
-            if($value1==$value2){
-                $returnArray[$key2]=$value1;
+            if($value1==$key2){
+                $returnArray[$value1]=$value2;
             }
         }
     }
@@ -38,11 +37,7 @@ function my_ksort($mass, $flag='')
 
 
 
-$mass=array(11=>8, 22=>5, 33=>2, 44=>3, 55=>6, 66=>9, 77=>7, 88=>4, 99=>1, 100=>0);
+$mass=array(00=>8, 11=>5, 88=>2, 22=>3, 77=>6, 33=>9, 66=>7, 44=>4, 55=>1, 100=>0);
+var_dump($mass);
 var_dump(my_ksort($mass));
 
-$mass1=array(8, "fgdsgf", 2, 3, "dfgd", 6);
-var_dump(arsort($mass1));
-foreach ($mass1 as $value){
-    echo "$value"."\n";
-}
