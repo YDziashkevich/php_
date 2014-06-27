@@ -90,13 +90,13 @@ function get_Form()
     $errors=valid_Form();
     $html=file_get_contents("./tpl/head.html");
     $html=$html.file_get_contents("./tpl/formName.html");
-    $html=$html.$errors[0];
+    $html=$html."</br>".$errors[0];
     $html=$html.file_get_contents("./tpl/formEmail.html");
-    $html=$html.$errors[1];
+    $html=$html."</br>".$errors[1];
     $html=$html.file_get_contents("./tpl/formMessage.html");
-    $html=$html.$errors[2];
-    $html=$html."<table class=\"captcha\"><tr><td>". get_Captcha(). "</td><td>".file_get_contents("./tpl/captcha.html")."</td></tr></table>";
-    $html=$html.$errors[3];
+    $html=$html."</br>".$errors[2];
+    $html=$html."<table class=\"captcha\"><tr><td>". get_Captcha(). "</td><td>".file_get_contents("./tpl/formCaptcha.html")."</td></tr></table>";
+    $html=$html."</br>".$errors[3];
     $html=$html.file_get_contents("./tpl/footer.html");
     return $html;
 }
