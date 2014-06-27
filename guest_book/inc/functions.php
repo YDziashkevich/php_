@@ -73,8 +73,9 @@ function valid_Form()
         }else{
             $error[]="";
         }
+        $error[]=$flag;
     }else{
-        $error=array(" ", " ", " ", " ");
+        $error=array(" ", " ", " ", 0);
     }
 
     return $error;
@@ -99,4 +100,3 @@ function get_Form()
     $html=$html.file_get_contents("./tpl/footer.html");
     return $html;
 }
-
