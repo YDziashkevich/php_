@@ -77,7 +77,7 @@ function valid_Form()
         }
         $error[]=$flag;
     }else{
-        $error=array(" ", " ", " ", " ", 0);
+        $error=array(" ", " ", " ", " ", 4);
     }
 
     return $error;
