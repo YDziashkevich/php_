@@ -148,6 +148,6 @@ function htmlMes($mes=array())
 function putMes()
 {
     $del="[***]";
-    $str=$_POST["textName"].$del.$_POST["textEmail"].$del.$_POST["textMessage"].$del.date("H:i m.d.y");
+    $str=$_POST["textName"].$del.$_POST["textEmail"].$del.$_POST["textMessage"].$del.date("H:i m.d.y")."\n";
     return file_put_contents("./data/messages.txt", $str, FILE_APPEND);
 }
