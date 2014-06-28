@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('UTC');
+
 /**
  * генерируем капчу
  * @return string выражение отображаемое в форме
@@ -75,7 +77,7 @@ function valid_Form()
         }
         $error[]=$flag;
     }else{
-        $error=array(" ", " ", " ", 0);
+        $error=array(" ", " ", " ", " ", 0);
     }
 
     return $error;
@@ -85,9 +87,8 @@ function valid_Form()
  * генерируем форму
  * @return string
  */
-function get_Form()
+function get_Form($errors=array(), $mes=array())
 {
-    $errors=valid_Form();
     $html=file_get_contents("./tpl/head.html");
     $html=$html.file_get_contents("./tpl/formName.html");
     $html=$html."</br>".$errors[0];
@@ -96,7 +97,57 @@ function get_Form()
     $html=$html.file_get_contents("./tpl/formMessage.html");
     $html=$html."</br>".$errors[2];
     $html=$html."<table class=\"captcha\"><tr><td>". get_Captcha(). "</td><td>".file_get_contents("./tpl/formCaptcha.html")."</td></tr></table>";
-    $html=$html."</br>".$errors[3];
+    $html=$html."</br>".$errors[3]."</br></br>";
+    foreach($mes as $value){
+        $tmp=explode("[***]", $value);
+        $html.=htmlMes($tmp);
+    }
     $html=$html.file_get_contents("./tpl/footer.html");
     return $html;
+}
+
+/**
+ * возвращает отсортированный массив сообщений
+ * @return array
+ */
+function getMessage()
+{
+    $messages=file("./data/messages.txt");
+    $messages=array_reverse($messages);
+    return $messages;
+}
+
+/**
+ * подсчитывает количество страниц с собщениями
+ * @param array $mes
+ * @param int $page
+ * @return float
+ */
+function getNumPage($mes=array(), $page=10){
+    $size=count($mes);
+    $numMes=$size/$page;
+    $numMes_=((int)$numMes==$numMes)?$numMes:(int)$numMes+1;
+    return $numMes;
+}
+
+/**
+ * Взвращает html для сообщения
+ * @param array $mes
+ * @return string
+ */
+function htmlMes($mes=array())
+{
+    $str="<p>".$mes[0]."\t".$mes[1]."</br>".$mes[2]."</br>".$mes[3]."</p>";
+    return $str;
+}
+
+/**
+ * Функция добовляющая запись сообщения
+ * @return int
+ */
+function putMes()
+{
+    $del="[***]";
+    $str=$_POST["textName"].$del.$_POST["textEmail"].$del.$_POST["textMessage"].$del.date("H:i m.d.y");
+    return file_put_contents("./data/messages.txt", $str, FILE_APPEND);
 }
