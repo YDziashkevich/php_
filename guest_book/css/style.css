@@ -1,91 +1,174 @@
 @charset "utf-8";
 *{
-	margin: 0px;
-	padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 body {
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-	width:800px;
-	
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    width:800px;
+
 }
-h1 {
-    text-align: center;
-}
-form{
+.formName{
     margin-top: 0px;
     margin-right: auto;
     margin-bottom: 0px;
     margin-left: auto;
     text-align: center;
+    font-weight: normal;
+    font-size: 30px;
+    margin-top: 10px;
 }
-p{
-	width: 800px;
-
-	font-weight: normal;
-	font-size: 25px;
-	text-align: center;
-	margin-top: 10px;
-	margin-bottom: 1px;
-        vertical-align: bottom;
+.name{
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+    text-align: center;
 }
-.text_{
-	width: 300px;
-	height: 30px;
-	font-size: 25px;
-	text-align: center;
-	outline: none;
+.textName{
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
 }
-.textC_{
-	width: 40px;
-	height: 30px;
-	font-size: 25px;
-	text-align: center;
-	outline: none;
+.inputName{
+    text-align: center;
+    font-weight: normal;
+    font-size: 15px;
+    width: 250px;
+    height: 25px;
 }
-.ok_button{
-	width: 50px;
-	height: 30px;
-	font-size: 25px;
-	text-align: center;
+.email{
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+    text-align: center;
 }
-.textM_{
-	width: 400px;
-	height: 100px;
-	font-size: 20px;
-	text-align: justify;
-	margin-bottom: 10px;
-	outline: none;
-	vertical-align: top;
+.textEmail{
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+}
+.inputEmail{
+    text-align: center;
+    font-weight: normal;
+    font-size: 15px;
+    width: 246px;
+    height: 25px;
+}
+.message{
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+    text-align: center;
+}
+.textMessage{
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+}
+.inputMessage{
+    text-align: left;
+    font-weight: normal;
+    font-size: 15px;
+    width: 230px;
+    height: 75px;
+    vertical-align: top;
 }
 .captcha{
-    text-align: center;
-    margin-left: auto;
+    margin-top: 10px;
     margin-right: auto;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    text-align: center;
 }
-.captcha td{
+.textCaptcha{
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+    font-weight: normal;
     font-size: 25px;
-    font-weight: bold;
-    vertical-align: middle;
-
 }
-/*
-#formC{
-	float: left;
-	text-align: center;
-	width: 800px;
-	padding-left: auto;
-	padding-right: auto;
-	padding-top: auto;
-	padding-bottom: auto;
-	font-size: 25px;
+.inputCaptcha{
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+    width: 30px;
+    height: 25px;
 }
+.table{
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+    text-align: center;
+    vertical-align: bottom;
+}/*
+.button{
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+    text-align: center;
+}*/
+.textButton{
+    text-align: center;
+    font-weight: normal;
+    font-size: 25px;
+}
+.inputButton{
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+    width: 50px;
+    height: 30px;
+    margin-left: 10px;
+}
+.error{
+    text-align: center;
+    font-weight: normal;
+    font-size: 15px;
+    height: 15px;
+}
+.nameEmail{
+    text-align: left;
+    font-weight: normal;
+    font-size: 15px;
+    padding-bottom: 5px;
+}
+.messages{
+    text-align: justify;
+    font-weight: normal;
+    font-size: 20px;
+}
+.date{
+    text-align: right;
+    font-weight: normal;
+    font-size: 15px;
+    padding-left: 650px;
+    padding-top: 5px;
+}
+.pMessage{
+    margin: 10px 10px;
+}/*
+ul.paginator{
+    margin: 5px;
+    text-align: center;
+}*/
+ul.paginator li{
+    display: inline;
+    padding: 3px;
+    text-align: center;
+    /*position: relative;
+    float: left;*/
+    font-size: 15px;
+    margin: 10px auto;
+}/*
+.divPaginator{
+    margin: 10px auto;
+    text-align: center;
+    position: relative;
+    float: left;
+}*/
