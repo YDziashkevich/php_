@@ -23,19 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="page.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tpl/page.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="39" selection-start="810" selection-end="810" vertical-scroll-proportion="0.0" vertical-offset="138" max-vertical-offset="986">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="54" selection-start="616" selection-end="628" vertical-scroll-proportion="-7.8461537" vertical-offset="119" max-vertical-offset="714">
+            <state line="26" column="14" selection-start="888" selection-end="888" vertical-scroll-proportion="0.5413153" vertical-offset="121" max-vertical-offset="782">
               <folding />
             </state>
           </provider>
@@ -44,16 +35,16 @@
       <file leaf-file-name="inc.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="31" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="187">
+            <state line="4" column="31" selection-start="131" selection-end="131" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="187">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Form.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Form.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="75" selection-start="2407" selection-end="2407" vertical-scroll-proportion="0.34401348" vertical-offset="1020" max-vertical-offset="2380">
+            <state line="112" column="8" selection-start="4083" selection-end="4083" vertical-scroll-proportion="-22.23077" vertical-offset="1326" max-vertical-offset="2465">
               <folding />
             </state>
           </provider>
@@ -95,12 +86,12 @@
         <option value="$PROJECT_DIR$/classes/ValidateForm.php" />
         <option value="$PROJECT_DIR$/inc/function.php" />
         <option value="$PROJECT_DIR$/inc/inc.php" />
-        <option value="$PROJECT_DIR$/tpl/page.tpl" />
         <option value="$PROJECT_DIR$/data/messages.txt" />
         <option value="$PROJECT_DIR$/classes/Storage.php" />
         <option value="$PROJECT_DIR$/classes/Paginator.php" />
-        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/tpl/page.tpl" />
         <option value="$PROJECT_DIR$/classes/Form.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -250,7 +241,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -423,20 +414,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tpl/page.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="39" selection-start="810" selection-end="810" vertical-scroll-proportion="0.0" vertical-offset="138" max-vertical-offset="986">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="31" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="187">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/messages.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="242" selection-start="7229" selection-end="7229" vertical-scroll-proportion="0.8244406" vertical-offset="14" max-vertical-offset="595" />
@@ -457,16 +434,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/tpl/page.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="54" selection-start="616" selection-end="628" vertical-scroll-proportion="-7.8461537" vertical-offset="119" max-vertical-offset="714">
+        <state line="25" column="17" selection-start="946" selection-end="946" vertical-scroll-proportion="0.7166948" vertical-offset="0" max-vertical-offset="986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="31" selection-start="131" selection-end="131" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="187">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="75" selection-start="2407" selection-end="2407" vertical-scroll-proportion="0.34401348" vertical-offset="1020" max-vertical-offset="2380">
+        <state line="112" column="8" selection-start="4083" selection-end="4083" vertical-scroll-proportion="-22.23077" vertical-offset="1326" max-vertical-offset="2465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="14" selection-start="888" selection-end="888" vertical-scroll-proportion="0.5413153" vertical-offset="121" max-vertical-offset="782">
           <folding />
         </state>
       </provider>

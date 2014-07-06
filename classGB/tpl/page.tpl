@@ -23,7 +23,7 @@
         <!--Message-->
         <div class="message">
         <span class="textMessage">Message:</span>
-        {{NAME}}
+        {{MESSAGE}}
         </div> <div class="error">{{ERRORMESSAGE}}</div>
         <!-- CAPTCHA -->
         <div class="captcha">

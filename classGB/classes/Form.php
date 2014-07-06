@@ -67,17 +67,12 @@ class Form {
         var_dump($postMessage);*/
 
         isset($_POST["name"])?$this->dataForm["name"]=$_POST["name"]:" ";
-        var_dump($this->dataForm["name"]);
         isset($_POST["email"])?$this->dataForm["email"]=$_POST["email"]:" ";
-        var_dump($this->dataForm["email"]);
         isset($_POST["message"])?$this->dataForm["message"]=$_POST["message"]:" ";
-        var_dump($this->dataForm["message"]);
         /*if(isset($_POST[$postMessage]) && (!empty($_POST[$postMessage]))){
             setcookie('message', $_POST['message'], 3600*60*60);
         }*/
         isset($_POST["captcha"])?$this->dataForm["captcha"]=$_POST["captcha"]:"";
-        var_dump($this->dataForm["captcha"]);
-        var_dump($this->dataForm);
     }
 
     /**
@@ -87,28 +82,38 @@ class Form {
      */
     public function validateForm(){
         $validation = true;
-        if(!preg_match('/^\D{3,} \D{3,}$/', $this->dataForm["name"])){
-            $validation = false;
-            $this->errors['name'] = "Имя пользователя должно содержать не менее 3 символов и состоять из двух слов";
+        if(isset($_POST)&&!empty($_POST)){
+            if(!preg_match('/^\D{3,}$/', $this->dataForm["name"])){
+                $validation = false;
+                $this->errors['name'] = "Имя пользователя должно содержать не менее 3 символов";
+                $_POST['name']=" ";
+            }else{
+                $this->errors['name'] = " ";
+            }
+            if(!preg_match('/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/',$this->dataForm["email"])){
+                $validation = false;
+                $this->errors['email'] = "Неправильно введен email. Должен быть вида example@mail.com";
+                $_POST['email']=" ";
+            }else{
+                $this->errors['email'] = " ";
+            }
+            if(strlen($this->dataForm["message"])<15){
+                $validation = false;
+                $this->errors['message'] = "Сообщение пользователя должно содержать не менее 15 символов";
+                $_POST['message']=" ";
+            }else{
+                $this->errors['message'] = " ";
+            }
+            if($this->dataForm['captcha']!=$_SESSION["ans"]){
+                $validation = false;
+                $this->errors['captcha'] = "Неправильный ответ";
+            }else{
+                $this->errors['captcha'] = " ";
+            }
         }else{
             $this->errors['name'] = " ";
-        }
-        if(!preg_match('/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/',$this->dataForm["email"])){
-            $validation = false;
-            $this->errors['email'] = "Неправильно введен email. Должен быть вида example@mail.com";
-        }else{
             $this->errors['email'] = " ";
-        }
-        if(strlen($this->dataForm["message"])<15){
-            $validation = false;
-            $this->errors['message'] = "Сообщение пользователя должно содержать не менее 15 символов";
-        }else{
             $this->errors['message'] = " ";
-        }
-        if($this->dataForm['captcha']!=$_SESSION["ans"]){
-            $validation = false;
-            $this->errors['captcha'] = "Неправильный ответ";
-        }else{
             $this->errors['captcha'] = " ";
         }
         if(!$validation){

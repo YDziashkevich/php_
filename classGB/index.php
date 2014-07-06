@@ -12,17 +12,21 @@ $postMessage="message";
 $error=array();
 $arrayMessages=array();
 $pageCount=array();
+isset($_POST['name'])?$valueName=$_POST['name']:$valueName=" ";
+isset($_POST['email'])?$valueEmail=$_POST['email']:$valueEmail=" ";
+isset($_POST['message'])?$valueMessage=$_POST['message']:$valueMessage=" ";
 
 $form->getInput("type='text' name='$postName' class='inputName'", $valueName, $postName);
 $form->getInput("type='text' name='$postEmail' class='inputEmail'", $valueEmail, $postEmail);
 $form->getInput("type='text' name='$postMessage' class='inputMessage'", $valueMessage, $postMessage);
-$form->getCaptcha();
-$form->getDataForm($postName, $postEmail, $postMessage);
-$validate=$form->validateForm();
 
+$form->getDataForm($postName, $postEmail, $postMessage);
+$form->getCaptcha();
+
+$validate=$form->validateForm();
 if($validate){
     $messages->putMes();
-    header('Location: '.$_SERVER['REQUEST_URI']);
+    //header('Location: '.$_SERVER['REQUEST_URI']);
 }
 
 $arrayMessages=$messages->getStorage();
