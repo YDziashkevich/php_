@@ -3,14 +3,11 @@ class Form {
     private $input=array();
     private $dataForm=array();
     private $errors=array();
-    /*
-    public function __construct(){
-        $this->error=" ";
-        $this->input=" ";
-        $this->dataForm=" ";
-        $this->messages=" ";
-        $this->paginator=" ";
-    }*/
+    public function __construct($attrForm=array()){
+        $this->getInput("type='text' name='$attrForm[postName]' class='inputName'", $attrForm['valueName'], $attrForm['postName']);
+        $this->getInput("type='text' name='$attrForm[postEmail]' class='inputEmail'", $attrForm['valueEmail'], $attrForm['postEmail']);
+        $this->getInput("type='text' name='$attrForm[postMessage]' class='inputMessage'", $attrForm['valueMessage'], $attrForm['postMessage']);
+    }
 
     /**
      * метод генерирует INPUT и заносит строку с HTML в массив $input
