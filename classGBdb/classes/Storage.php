@@ -69,9 +69,10 @@ EOT;
     }
 
     public function putMes(){
+
         $data = array( 'name' => $_POST["name"], 'email' => $_POST["email"], 'message' => $_POST["message"],
         'date' => date("H:i m.d.y"));
-        $STH = $this->db->("INSERT INTO guestBook_st (name, email, message, date) value (:name, :email, :message, :date)");
+        $STH = $this->db->prepare("INSERT INTO st_userMessage (name, email, message, date) value (:name, :email, :message, :date)");
         $STH->execute($data);
     }
 }

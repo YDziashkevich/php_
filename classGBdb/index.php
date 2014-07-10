@@ -42,5 +42,3 @@ $htmlMessages=$messages->getMessages($pageCount);
 $page=$form->getHtml($htmlMessages, $htmlPaginator);
 
 echo $page;
-
-$db = null;
